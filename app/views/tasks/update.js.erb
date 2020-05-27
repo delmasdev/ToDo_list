@@ -1,3 +1,2 @@
-document.getElementById('<%= @task.id %>')
-document.write(<%= @task.title %>.strike())
+document.getElementById("<%= @task.id %>").innerHTML = "<%= j render 'task', task: @task %>"
 
