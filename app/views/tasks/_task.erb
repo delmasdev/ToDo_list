@@ -1,4 +1,5 @@
 <li id='<%= task.id %>'>
+
   <% if (task.status == false)%>
     <%= task.title  %>
     <% unless task.deadline.nil? %>
@@ -7,7 +8,7 @@
   <% else %>
     <strike><%= task.title  %></strike>
     <% unless task.deadline.nil? %>
-     <strike> , to read: <%= task.deadline.strftime('%D')  %></strike>
+      <strike> , to read: <%= task.deadline.strftime('%D')  %></strike>
     <% end %>
   <% end %>
   <%= check_box_tag :status, 
