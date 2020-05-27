@@ -28,8 +28,10 @@ class TasksController < ApplicationController
     def update
       @task = Task.find(params[:id])
       @task.update(task_params)
-      redirect_to tasks_path
-      flash[:notice] = "Task edited"
+      respond_to do |format|
+        format.html { redirect_to tasks_path }
+        format.js { }
+      end
     end
   
     def index
@@ -49,7 +51,7 @@ class TasksController < ApplicationController
     private
   
     def task_params
-      params.permit(:title, :deadline, :description)
+      params.permit(:title, :deadline, :description, :status)
     end
   
     def category_params
@@ -57,4 +59,4 @@ class TasksController < ApplicationController
     end
   
   end
-  
+   
