@@ -1,0 +1,23 @@
+<div class="container-fluid d-flex">
+  <div class="col col-4">
+    <ul class="list-group" id="email-list">
+         <h3 class="text-center list-group-item">Mes emails</h3>
+        <li class="list-group-item">
+          <%= link_to "Recevoir un email", emails_path, :method => :post, class: "btn btn-primary btn-lg btn-block", remote: true %>
+        </li>
+      <% @email.each do |m| %>
+        <% if m.read? %>
+          <li class="list-group-item  bg-light" id="<%= m.id %>"><%= link_to m.object, email_path(m.id), remote: true %></li>
+        <% else %>
+          <li class="list-group-item" id="<%= m.id %>"><%= link_to m.object, email_path(m.id), remote: true %></li>
+        <% end %>
+    <% end %>
+    </ul>
+  </div>
+  <div class="col col-8">
+    <ul class="list-group" id="email-show">
+         <h3 class="text-center list-group-item">Email</h3>
+    </ul>
+  </div>
+</div>
+

@@ -1,0 +1,7 @@
+<%= link_to "supprimer", email_path(email.id), :method => :delete, class: "btn btn-secondary btn-lg ", remote: true %>
+
+ <% if @email.read != false %>
+  <%= link_to '', email_path(email.id), :method => :put, class: 'btn btn-primary btn-lg' , id: 'noread', data: { params: {read: false}.to_param }, remote: true %>
+   <% else %>
+    <%= link_to '', email_path(email.id), :method => :put, class: 'btn btn-primary btn-lg' , id: 'noread', data: { params: {read: true}.to_param }, remote: true %>
+  <% end %>
